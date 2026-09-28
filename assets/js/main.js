@@ -1,8 +1,12 @@
-// Small progressive enhancements. The site works fully without JavaScript.
+// Small progressive enhancements. Every page is fully readable without JavaScript.
 (function () {
-  document.documentElement.classList.remove('no-js');
+  var root = document.documentElement;
+  root.classList.remove('no-js');
 
-  // Mobile menu
+  function readStore(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function writeStore(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  // ---- Mobile menu ----
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
   if (toggle && links) {
@@ -11,102 +15,110 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
     });
   }
 
-  // Header border once the page is scrolled
-  var header = document.querySelector('.site-header');
-  if (header) {
-    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  // Reveal on scroll. Fail-safe: only elements below the fold are ever hidden,
-  // and they are revealed by a plain scroll/resize check (no rendering-dependent APIs).
-  var pending = [];
-  if (window.innerHeight > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pending'); pending.push(el); }
-    });
-  }
-  var checkReveal = function () {
-    if (!pending.length) return;
-    var limit = window.innerHeight * 0.94;
-    pending = pending.filter(function (el) {
-      if (el.getBoundingClientRect().top < limit) { el.classList.remove('pending'); return false; }
-      return true;
-    });
-  };
-  window.addEventListener('scroll', checkReveal, { passive: true });
-  window.addEventListener('resize', checkReveal);
-  window.addEventListener('hashchange', function () { setTimeout(checkReveal, 50); });
-  // Printing or saving the page should always show everything
-  window.addEventListener('beforeprint', function () { pending.forEach(function (el) { el.classList.remove('pending'); }); pending = []; });
-
-  // ---- Direction lens: strategy | bd | investing ----
+  // ---- View lens: strategy | bd | investing ----
   // Priority: ?lens= in the URL (shareable links) > last choice > default in the HTML.
   var LENSES = ['strategy', 'bd', 'investing'];
-  var root = document.documentElement;
-  var STORE = 'aa-lens';
 
-  function readStored() { try { return localStorage.getItem(STORE); } catch (e) { return null; } }
-  function store(v) { try { localStorage.setItem(STORE, v); } catch (e) {} }
-
-  function setLens(lens, opts) {
+  function setLens(lens, updateUrl) {
     if (LENSES.indexOf(lens) === -1) return;
-    var apply = function () {
-      root.setAttribute('data-lens', lens);
-      document.querySelectorAll('[data-lens-btn]').forEach(function (b) {
-        b.setAttribute('aria-pressed', b.getAttribute('data-lens-btn') === lens ? 'true' : 'false');
-      });
-      // Carry the lens onto internal links (case studies, back links, CV page)
-      document.querySelectorAll('a[data-keep-lens]').forEach(function (a) {
-        var url = new URL(a.getAttribute('href'), location.href);
-        url.searchParams.set('lens', lens);
-        a.setAttribute('href', a.getAttribute('href').split('?')[0].split('#')[0] + url.search + url.hash);
-      });
-    };
-    apply();
-    if (opts && opts.animate) {
-      document.querySelectorAll('[data-lens-anim]').forEach(function (el) {
-        el.classList.remove('lens-fade'); void el.offsetWidth; el.classList.add('lens-fade');
-      });
-    }
-    store(lens);
-    if (opts && opts.updateUrl && window.history && history.replaceState) {
+    root.setAttribute('data-lens', lens);
+    document.querySelectorAll('[data-lens-btn]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lens-btn') === lens ? 'true' : 'false');
+    });
+    // Carry the view onto internal links (case studies, back links, CV page)
+    document.querySelectorAll('a[data-keep-lens]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      var url = new URL(href, location.href);
+      url.searchParams.set('lens', lens);
+      a.setAttribute('href', href.split('?')[0].split('#')[0] + url.search + url.hash);
+    });
+    writeStore('aa-lens', lens);
+    if (updateUrl && window.history && history.replaceState) {
       var u = new URL(location.href);
       u.searchParams.set('lens', lens);
       history.replaceState(null, '', u.pathname + u.search + u.hash);
     }
+    // Case pages and the CV page title follow the view too
+    if (document.body.hasAttribute('data-cv')) {
+      var names = { strategy: 'Strategy', bd: 'Business Development', investing: 'Investing' };
+      document.title = 'Ali Almasi - CV - ' + names[lens];
+    }
   }
 
-  var fromUrl = new URLSearchParams(location.search).get('lens');
-  var initial = LENSES.indexOf(fromUrl) > -1 ? fromUrl : (readStored() || root.getAttribute('data-lens') || 'strategy');
-  setLens(initial);
+  var urlLens = new URLSearchParams(location.search).get('lens');
+  var hasUrlLens = LENSES.indexOf(urlLens) > -1;
+  setLens(hasUrlLens ? urlLens : (readStore('aa-lens') || root.getAttribute('data-lens') || 'strategy'));
 
   document.querySelectorAll('[data-lens-btn]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      setLens(b.getAttribute('data-lens-btn'), { animate: true, updateUrl: true });
-    });
+    b.addEventListener('click', function () { setLens(b.getAttribute('data-lens-btn'), true); });
   });
 
-  // Show the compact switcher in the header once the hero switcher scrolls away
-  var heroBar = document.querySelector('.lens-bar');
-  if (header && heroBar) {
-    var checkHero = function () {
-      header.classList.toggle('past-hero', heroBar.getBoundingClientRect().bottom < header.offsetHeight);
+  // ---- Welcome guide (home page only) ----
+  // Shown once to first-time visitors who did not arrive through a view-specific link.
+  var welcome = document.getElementById('welcome');
+  if (welcome) {
+    var steps = welcome.querySelectorAll('.welcome-step');
+    var lastFocus = null;
+
+    var showStep = function (n) {
+      steps.forEach(function (s) { s.hidden = s.getAttribute('data-step') !== String(n); });
+      // Focus the panel itself (not the first option, which would look pre-selected);
+      // Tab then moves through the options.
+      var panel = welcome.querySelector('.welcome-panel');
+      if (panel) panel.focus();
     };
-    checkHero();
-    window.addEventListener('scroll', checkHero, { passive: true });
+    var open = function () {
+      lastFocus = document.activeElement;
+      welcome.hidden = false;
+      document.body.classList.add('modal-open');
+      showStep(1);
+    };
+    var close = function () {
+      welcome.hidden = true;
+      document.body.classList.remove('modal-open');
+      writeStore('aa-welcome-seen', '1');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+
+    welcome.querySelectorAll('[data-welcome-lens]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        setLens(b.getAttribute('data-welcome-lens'), true);
+        showStep(2);
+      });
+    });
+    welcome.querySelectorAll('[data-welcome-close]').forEach(function (b) { b.addEventListener('click', close); });
+    var casesBtn = welcome.querySelector('[data-welcome-cases]');
+    if (casesBtn) casesBtn.addEventListener('click', function () {
+      close();
+      var work = document.getElementById('work');
+      if (work) {
+        work.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var table = work.querySelector('.work-table');
+        if (table) { table.classList.remove('spotlight'); void table.offsetWidth; table.classList.add('spotlight'); }
+      }
+    });
+    welcome.addEventListener('click', function (e) { if (e.target === welcome) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (welcome.hidden) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') {   // keep focus inside the dialog
+        var f = [].slice.call(welcome.querySelectorAll('.welcome-step:not([hidden]) button'));
+        if (!f.length) return;
+        var i = f.indexOf(document.activeElement);
+        if (i === -1) { e.preventDefault(); (e.shiftKey ? f[f.length - 1] : f[0]).focus(); }
+        else if (e.shiftKey && i === 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      }
+    });
+    document.querySelectorAll('[data-welcome-open]').forEach(function (b) { b.addEventListener('click', open); });
+
+    if (!hasUrlLens && !readStore('aa-welcome-seen')) open();
   }
 
-  // Footer year
-  document.querySelectorAll('[data-year]').forEach(function (el) {
-    el.textContent = new Date().getFullYear();
-  });
+  // ---- Footer year ----
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
