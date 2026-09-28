@@ -342,6 +342,20 @@ section.tint { background: var(--bg-2); }
 .next-cs strong { font-weight: 600; font-size: 1.05rem; }
 @media (max-width: 640px) { .next-cs { grid-template-columns: 1fr; } .next-cs a.right { text-align: left; border-left: 0; border-top: 1px solid var(--line); padding-left: 0; } }
 
+/* ---------- Scroll cue ---------- */
+.scroll-cue {
+  position: fixed; left: 50%; bottom: 20px; z-index: 40; transform: translate(-50%, 10px);
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px 10px 18px; min-height: 44px;
+  background: var(--accent); color: #fff; border: 0; border-radius: 4px; cursor: pointer;
+  font: 500 .9rem/1 var(--sans); box-shadow: 0 6px 20px rgba(14, 23, 38, .22);
+  opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
+}
+.scroll-cue.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.scroll-cue svg { animation: cueBob 1.6s ease-in-out infinite; }
+@keyframes cueBob { 0%, 100% { transform: translateY(-1px); } 50% { transform: translateY(3px); } }
+@media (prefers-reduced-motion: reduce) { .scroll-cue svg { animation: none; } .scroll-cue { transition: none; } }
+@media print { .scroll-cue { display: none !important; } }
+
 /* ---------- Print ---------- */
 @media print {
   .site-header, .intro-actions, .nav-toggle, .next-cs { display: none !important; }

@@ -2,7 +2,7 @@
 
 Portfolio and CV of **Ali Almasi**: strategy, business development and venture capital in fintech and digital assets.
 
-**Site:** https://alialmessi.github.io
+**Site:** https://alialmessi.github.io/portfolio/
 
 ## Case studies
 - **Wallex:** from 500+ projects to high-conviction investments (venture capital)

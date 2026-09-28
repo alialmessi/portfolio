@@ -32,6 +32,26 @@
     });
   }
 
+  // ---- Scroll cue ----
+  // A small "Scroll for more" prompt at the bottom of the screen, so visitors know
+  // the page continues. Shown only while at the top of a page that has more below.
+  var cue = document.createElement('button');
+  cue.type = 'button';
+  cue.className = 'scroll-cue';
+  cue.setAttribute('aria-label', 'Scroll down for more');
+  cue.innerHTML = '<span>Scroll for more</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  document.body.appendChild(cue);
+  var updateCue = function () {
+    var vh = window.innerHeight;
+    var more = vh > 0 && document.documentElement.scrollHeight - vh - window.scrollY > 160;
+    cue.classList.toggle('show', window.scrollY < 40 && more);
+  };
+  cue.addEventListener('click', function () { window.scrollBy({ top: Math.round(window.innerHeight * 0.8), behavior: 'smooth' }); });
+  updateCue();
+  window.addEventListener('scroll', updateCue, { passive: true });
+  window.addEventListener('resize', updateCue);
+  window.addEventListener('load', updateCue);
+
   // ---- Footer year ----
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
