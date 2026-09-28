@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ali Almasi — Strategy, Business Development &amp; Investing</title>
-  <meta name="description" content="Ali Almasi — strategy, business development and venture investing across fintech and digital assets. Case studies from Wallex, iToll and Mohajer. Based in Tehran.">
+  <meta name="color-scheme" content="only light">
+  <title>Ali Almasi — Strategy, Business Development &amp; Venture Capital</title>
+  <meta name="description" content="Ali Almasi — strategy, business development and venture capital across fintech and digital assets. Case studies from Wallex, iToll and Mohajer. Based in Tehran.">
   <meta name="author" content="Ali Almasi">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ali Almasi — Strategy, Business Development &amp; Investing">
-  <meta property="og:description" content="Strategy, business development and venture investing across fintech and digital assets. Case studies from Wallex, iToll and Mohajer.">
+  <meta property="og:title" content="Ali Almasi — Strategy, Business Development &amp; Venture Capital">
+  <meta property="og:description" content="Strategy, business development and venture capital across fintech and digital assets. Case studies from Wallex, iToll and Mohajer.">
   <meta property="og:image" content="https://alialmessi.github.io/assets/og-image.png">
   <meta property="og:url" content="https://alialmessi.github.io/">
   <link rel="canonical" href="https://alialmessi.github.io/">
@@ -20,11 +21,10 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
-    /* Apply the chosen view before first paint (no flash). */
+    /* Private view links (?lens=...) are applied before first paint. */
     (function () {
       var l = new URLSearchParams(location.search).get('lens');
-      if (!l) { try { l = localStorage.getItem('aa-lens'); } catch (e) {} }
-      if (['strategy', 'bd', 'investing'].indexOf(l) > -1) document.documentElement.setAttribute('data-lens', l);
+      if (['strategy', 'bd', 'vc'].indexOf(l) > -1) document.documentElement.setAttribute('data-lens', l);
     })();
   </script>
 </head>
@@ -49,36 +49,23 @@
 
 <main id="main">
 
-  <!-- ================= VIEW SELECTOR ================= -->
-  <div class="viewbar" id="top">
-    <div class="container viewbar-inner">
-      <span class="viewbar-label">View this profile for</span>
-      <div class="lens-switch" role="group" aria-label="View this profile for">
-        <button type="button" data-lens-btn="strategy" aria-pressed="true">Strategy</button>
-        <button type="button" data-lens-btn="bd" aria-pressed="false"><span class="long">Business Development</span><span class="short">Biz Dev</span></button>
-        <button type="button" data-lens-btn="investing" aria-pressed="false">Investing</button>
-      </div>
-      <button type="button" class="viewbar-help" data-welcome-open>How this works</button>
-    </div>
-  </div>
-
   <!-- ================= INTRO ================= -->
-  <section class="intro">
+  <section class="intro" id="top">
     <div class="container intro-grid">
       <div>
         <p class="kicker" data-show="strategy">Strategy · Fintech &amp; Digital Assets</p>
         <p class="kicker" data-show="bd">Business Development · Fintech &amp; New Ventures</p>
-        <p class="kicker" data-show="investing">Venture &amp; Investment Analysis · Digital Assets</p>
+        <p class="kicker" data-show="vc">Venture Capital · Fintech &amp; Digital Assets</p>
         <h1>Ali Almasi</h1>
 
         <p class="lead" data-show="strategy">I benchmark markets, size opportunities and build the business case, so leadership can decide where to play and how to win. I am currently shaping a fintech proposition for Iran’s mass-affluent segment. Before that I was a VC business analyst at Wallex, which gives me an investor’s view of business models and unit economics.</p>
         <p class="lead" data-show="bd">I take new lines of business from market sizing to launch: customer research, pricing, unit economics, partners and the launch plan. At iToll I took an on-demand automotive-services line from business case to a live first vertical in three months.</p>
-        <p class="lead" data-show="investing">Two years as a VC business analyst at Wallex: due diligence on 500+ blockchain, DeFi and Web3 protocols, and support for allocation and portfolio construction of the company’s proprietary capital. I bring an operator’s view from launching a new business line and shaping a fintech proposition.</p>
+        <p class="lead" data-show="vc">Two years as a VC business analyst at Wallex, one of Iran’s largest crypto exchanges: screening deal flow, running due diligence on 500+ blockchain, DeFi and Web3 projects, and turning findings into investment theses for the investment team. I bring an operator’s view to deals from launching a new business line and shaping a fintech proposition.</p>
 
         <div class="intro-actions">
-          <a class="btn btn-primary" data-show="strategy" href="resume/Ali_Almasi_CV_Strategy.pdf" download>Download CV (PDF)</a>
-          <a class="btn btn-primary" data-show="bd" href="resume/Ali_Almasi_CV_Business_Development.pdf" download>Download CV (PDF)</a>
-          <a class="btn btn-primary" data-show="investing" href="resume/Ali_Almasi_CV_Investing.pdf" download>Download CV (PDF)</a>
+          <a class="btn btn-primary" data-show="strategy" href="resume/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download CV (PDF)</a>
+          <a class="btn btn-primary" data-show="bd" href="resume/bd/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download CV (PDF)</a>
+          <a class="btn btn-primary" data-show="vc" href="resume/vc/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download CV (PDF)</a>
           <a class="btn btn-outline" href="#work">Read the case studies</a>
         </div>
       </div>
@@ -93,7 +80,7 @@
           <div><dt>Seeking</dt><dd>
             <span data-show="strategy">Strategy, corporate development and business analysis roles</span>
             <span data-show="bd">Business development, partnerships and new-venture roles</span>
-            <span data-show="investing">VC, investment analyst and research roles</span>
+            <span data-show="vc">Venture capital analyst and associate roles, including corporate venture</span>
           </dd></div>
         </dl>
       </aside>
@@ -106,14 +93,14 @@
       <h2 class="label-title" id="figures-title">Key figures</h2>
       <div class="figures-wrap"><div class="figures">
         <div class="figure lensable" style="--o-s:2;--o-b:4;--o-i:1"><div class="num">500+</div><p>Blockchain, DeFi and Web3 protocols evaluated in due diligence</p></div>
-        <div class="figure lensable" data-show="investing" style="--o-i:2"><div class="num">35%</div><p>Annualized return, proprietary portfolio<sup>1</sup></p></div>
-        <div class="figure lensable" data-show="investing" style="--o-i:3"><div class="num">1.55</div><p>Sharpe ratio, same portfolio<sup>1</sup></p></div>
-        <div class="figure lensable" data-show="investing" style="--o-i:4"><div class="num">3</div><p>Strategies: liquid venture, value/growth, DeFi yield</p></div>
+        <div class="figure lensable" data-show="vc" style="--o-i:2"><div class="num">3 layers</div><p>Of due diligence: protocol design, tokenomics, market positioning</p></div>
+        <div class="figure lensable" data-show="vc" style="--o-i:3"><div class="num">35%</div><p>Annualized return, proprietary portfolio<sup>1</sup></p></div>
+        <div class="figure lensable" data-show="vc" style="--o-i:4"><div class="num">2 years</div><p>In venture capital at Wallex</p></div>
         <div class="figure lensable" data-show="strategy bd" style="--o-s:1;--o-b:2"><div class="num">4</div><p>Adjacent markets benchmarked for a new fintech proposition</p></div>
         <div class="figure lensable" data-show="strategy bd" style="--o-s:3;--o-b:1"><div class="num">3 months</div><p>From business case to a launched service line at iToll</p></div>
         <div class="figure lensable" data-show="strategy bd" style="--o-s:4;--o-b:3"><div class="num">7+ years</div><p>Across fintech, digital assets, marketing and technology delivery</p></div>
       </div></div>
-      <p class="source" data-show="investing"><sup>1</sup> Wallex’s proprietary portfolio, 2023–2025. I supported research, allocation and portfolio construction as part of the investment team.</p>
+      <p class="source" data-show="vc"><sup>1</sup> Wallex’s proprietary portfolio, 2023–2025. I supported research, allocation and portfolio construction as part of the investment team.</p>
     </div>
   </section>
 
@@ -122,17 +109,15 @@
     <div class="container">
       <div class="section-head">
         <h2>Case studies</h2>
-        <p data-show="strategy">Ordered for strategy roles. Each one covers the question, the approach and the outcome.</p>
-        <p data-show="bd">Ordered for business development roles. Each one covers the question, the approach and the outcome.</p>
-        <p data-show="investing">Ordered for investing roles. Each one covers the question, the approach and the outcome.</p>
+        <p>Each one covers the question, the approach and the outcome.</p>
       </div>
 
       <div class="work-table" role="list">
         <a class="work-row lensable" role="listitem" href="work/wallex.html" data-keep-lens style="--o-s:3;--o-b:3;--o-i:1">
           <span class="logo-tile"><img src="assets/logos/wallex.svg" alt="Wallex logo" width="32" height="32"></span>
-          <span class="work-org"><strong>Wallex</strong><span>2023–2025 · Venture investing</span></span>
-          <span class="work-main"><strong>A research-to-allocation engine for digital assets</strong><span>Three-layer due diligence on 500+ protocols, feeding a multi-strategy proprietary portfolio with built-in hedging.</span></span>
-          <span class="work-out">35% annualized · 1.55 Sharpe</span>
+          <span class="work-org"><strong>Wallex</strong><span>2023–2025 · Venture capital</span></span>
+          <span class="work-main"><strong>From 500+ projects to high-conviction investments</strong><span>Three-layer due diligence on 500+ projects, turning research into investment theses for the company’s proprietary portfolio.</span></span>
+          <span class="work-out">500+ projects · 35% annualized</span>
           <span class="work-go" aria-hidden="true">→</span>
         </a>
         <a class="work-row lensable" role="listitem" href="work/itoll.html" data-keep-lens style="--o-s:2;--o-b:1;--o-i:3">
@@ -159,7 +144,7 @@
       <div class="section-head">
         <h2 data-show="strategy">Approach: from question to decision</h2>
         <h2 data-show="bd">Approach: from opportunity to launch</h2>
-        <h2 data-show="investing">Approach: from universe to conviction</h2>
+        <h2 data-show="vc">Approach: from deal flow to conviction</h2>
         <p>Structured research, numbers that hold up, and a clear recommendation.</p>
       </div>
 
@@ -175,11 +160,11 @@
         <li><h3>Build the case</h3><p>Pricing, unit economics and the partnership model that make it a business.</p><span class="evidence">Pricing; unit economics; partners</span></li>
         <li><h3>Launch</h3><p>Choose the first vertical, go live, and hand over a roadmap the team can run with.</p><span class="evidence">Car wash launched first</span></li>
       </ol>
-      <ol class="steps" data-show="investing">
-        <li><h3>Screen</h3><p>Cover the universe across infrastructure, financial applications and emerging sectors.</p><span class="evidence">500+ protocols screened</span></li>
+      <ol class="steps" data-show="vc">
+        <li><h3>Screen</h3><p>Cover the market across infrastructure, financial applications and emerging sectors to find the opportunities worth a closer look.</p><span class="evidence">500+ projects screened</span></li>
         <li><h3>Diligence</h3><p>Protocol design, tokenomics and market positioning, each layer filtering out weak projects.</p><span class="evidence">Fundamental and on-chain analysis</span></li>
-        <li><h3>Allocate</h3><p>Size positions across liquid venture, value/growth and DeFi-yield strategies.</p><span class="evidence">35% annualized return</span></li>
-        <li><h3>Protect</h3><p>Hedge directional risk with options, staking, liquidity provision and delta-neutral structures.</p><span class="evidence">1.55 Sharpe ratio</span></li>
+        <li><h3>Thesis</h3><p>Turn diligence into a clear investment thesis: why this project, why now, and what has to be true.</p><span class="evidence">Investment theses and recommendations</span></li>
+        <li><h3>Portfolio</h3><p>Support allocation and portfolio construction, then keep tracking each position with market and on-chain data.</p><span class="evidence">35% annualized portfolio return</span></li>
       </ol>
     </div>
   </section>
@@ -201,7 +186,8 @@
           <div class="when">2023 – 2025</div>
           <div class="xp-body">
             <div class="xp-head"><span class="logo-tile"><img src="assets/logos/wallex.svg" alt="Wallex logo" width="32" height="32"></span><div><h3>Wallex</h3><div class="role">VC Business Analyst · Research &amp; Investment</div></div></div>
-            <p>Fundamental analysis and due diligence on 500+ blockchain, DeFi and Web3 protocols. Supported asset allocation and portfolio construction for the company’s proprietary capital (35% annualized, 1.55 Sharpe). Monitored narratives, macro, tokenomics, sentiment and on-chain data for senior reporting.</p>
+            <p data-show="strategy bd">Fundamental analysis and due diligence on 500+ blockchain, DeFi and Web3 protocols. Supported asset allocation and portfolio construction for the company’s proprietary capital (35% annualized, 1.55 Sharpe). Monitored narratives, macro, tokenomics, sentiment and on-chain data for senior reporting.</p>
+            <p data-show="vc">Screened deal flow and ran due diligence on 500+ blockchain, DeFi and Web3 projects, turning findings into investment theses. Supported investment decisions and portfolio construction for the company’s proprietary capital (35% annualized). Tracked narratives, macro, tokenomics and on-chain data for senior reporting.</p>
             <a class="more" href="work/wallex.html" data-keep-lens>Read the case study →</a>
           </div>
         </li>
@@ -246,8 +232,8 @@
             <p>Business cases and launch plans · Pricing and unit economics · Partnership analysis · Go-to-market · Agile delivery</p>
           </div>
           <div class="cap lensable" style="--o-s:3;--o-b:3;--o-i:1">
-            <h3>Finance and investing</h3>
-            <p>Due diligence · Investment theses · Asset allocation and portfolio construction · Tokenomics and on-chain analysis · Hedging</p>
+            <h3>Venture capital and finance</h3>
+            <p>Deal screening and due diligence · Investment theses · Portfolio construction · Tokenomics and on-chain analysis · Financial analysis</p>
           </div>
         </div>
       </div>
@@ -256,7 +242,7 @@
         <ul class="edu-list">
           <li><span class="logo-tile"><img src="assets/logos/kharazmi.svg" alt="Kharazmi University logo" width="32" height="32"></span><div><strong>MBA, Finance</strong><span>Kharazmi University</span></div><span class="when">2024 – Present</span></li>
           <li><span class="logo-tile"><img src="assets/logos/sbu.svg" alt="Shahid Beheshti University logo" width="32" height="32"></span><div><strong>B.Sc. Mechanical Engineering</strong><span>Shahid Beheshti University</span></div><span class="when">2018 – 2024</span></li>
-          <li><span class="logo-tile"><img src="assets/logos/nodet.svg" alt="NODET logo" width="32" height="32"></span><div><strong>Secondary school, NODET</strong><span>National Organization for Development of Exceptional Talents</span></div><span class="when">2012 – 2018</span></li>
+          <li><span class="logo-tile"><img src="assets/logos/nodet.svg" alt="NODET logo" width="32" height="32"></span><div><strong>NODET</strong><span>National Organization for Development of Exceptional Talents</span></div><span class="when">2012 – 2018</span></li>
         </ul>
       </div>
     </div>
@@ -269,12 +255,12 @@
         <h2>Contact</h2>
         <p class="contact-note" data-show="strategy">Open to strategy, corporate development and business analysis roles in fintech and digital assets.</p>
         <p class="contact-note" data-show="bd">Open to business development, partnerships and new-venture roles in fintech.</p>
-        <p class="contact-note" data-show="investing">Open to VC, investment analyst and research roles in fintech and digital assets.</p>
+        <p class="contact-note" data-show="vc">Open to venture capital analyst and associate roles in fintech and digital assets.</p>
       </div>
       <dl class="contact-list">
         <div><dt>Email</dt><dd><a href="mailto:ali.almasi1378@gmail.com">ali.almasi1378@gmail.com</a></dd></div>
         <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ali-almasi-6737a318a/" target="_blank" rel="noopener">linkedin.com/in/ali-almasi-6737a318a</a></dd></div>
-        <div><dt>CV</dt><dd><a href="resume/" data-keep-lens>View online</a> · <a data-show="strategy" href="resume/Ali_Almasi_CV_Strategy.pdf" download>Download PDF</a><a data-show="bd" href="resume/Ali_Almasi_CV_Business_Development.pdf" download>Download PDF</a><a data-show="investing" href="resume/Ali_Almasi_CV_Investing.pdf" download>Download PDF</a></dd></div>
+        <div><dt>CV</dt><dd><a href="resume/" data-keep-lens>View online</a> · <a data-show="strategy" href="resume/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download PDF</a><a data-show="bd" href="resume/bd/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download PDF</a><a data-show="vc" href="resume/vc/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download PDF</a></dd></div>
         <div><dt>Location</dt><dd>Tehran, Iran</dd></div>
       </dl>
     </div>
@@ -284,42 +270,9 @@
 <footer class="site-footer">
   <div class="container">
     <span>© <span data-year>2026</span> Ali Almasi</span>
-    <span>Strategy · Business Development · Investing</span>
+    <span>Strategy · Business Development · Venture Capital</span>
   </div>
 </footer>
-
-<!-- ================= WELCOME GUIDE (first visit only; two steps) ================= -->
-<div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title" hidden>
-  <div class="welcome-panel" tabindex="-1">
-    <!-- Step 1: choose a view -->
-    <div class="welcome-step" data-step="1">
-      <p class="welcome-kicker">Welcome · Step 1 of 2</p>
-      <h2 id="welcome-title">Which role are you considering me for?</h2>
-      <p>This profile has three views. Choose one and the summary, key figures, case studies and CV adapt to it. You can switch at any time from the bar at the top of the page.</p>
-      <div class="welcome-options">
-        <button type="button" data-welcome-lens="strategy"><strong>Strategy</strong><span>Strategy, corporate development, business analysis</span><span class="go" aria-hidden="true">→</span></button>
-        <button type="button" data-welcome-lens="bd"><strong>Business Development</strong><span>New business lines, partnerships, go-to-market</span><span class="go" aria-hidden="true">→</span></button>
-        <button type="button" data-welcome-lens="investing"><strong>Investing</strong><span>Venture capital, investment analysis, research</span><span class="go" aria-hidden="true">→</span></button>
-      </div>
-      <button type="button" class="welcome-skip" data-welcome-close>Skip and view the full profile</button>
-    </div>
-    <!-- Step 2: point to the case studies -->
-    <div class="welcome-step" data-step="2" hidden>
-      <p class="welcome-kicker">Step 2 of 2</p>
-      <h2>Read the case studies</h2>
-      <p>Three case studies show how I work: the question, the approach, and the outcome. They are ordered for the view you chose, with the most relevant first.</p>
-      <ul class="welcome-cases">
-        <li class="lensable" style="--o-s:3;--o-b:3;--o-i:1"><span class="logo-tile sm"><img src="assets/logos/wallex.svg" alt="" width="20" height="20"></span><span><strong>Wallex</strong> · Digital asset research and investing</span></li>
-        <li class="lensable" style="--o-s:2;--o-b:1;--o-i:3"><span class="logo-tile sm"><img src="assets/logos/itoll.svg" alt="" width="20" height="20"></span><span><strong>iToll</strong> · Launching a new service line</span></li>
-        <li class="lensable" style="--o-s:1;--o-b:2;--o-i:2"><span class="logo-tile sm"><img src="assets/logos/mohajer.svg" alt="" width="20" height="20"></span><span><strong>Mohajer</strong> · Fintech strategy for the mass-affluent</span></li>
-      </ul>
-      <div class="welcome-actions">
-        <button type="button" class="btn btn-primary" data-welcome-cases>Show me the case studies</button>
-        <button type="button" class="btn btn-outline" data-welcome-close>Browse the profile</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script src="assets/js/main.js"></script>
 </body>

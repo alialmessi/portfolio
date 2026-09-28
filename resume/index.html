@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ali Almasi — CV</title>
-  <meta name="description" content="CV of Ali Almasi — strategy, business development and venture investing across fintech and digital assets.">
+  <meta name="color-scheme" content="only light">
+  <title>Ali Almasi - CV</title>
+  <meta name="description" content="CV of Ali Almasi — strategy, business development and venture capital across fintech and digital assets.">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +13,7 @@
   <script>
     (function () {
       var l = new URLSearchParams(location.search).get('lens');
-      if (!l) { try { l = localStorage.getItem('aa-lens'); } catch (e) {} }
-      if (['strategy', 'bd', 'investing'].indexOf(l) > -1) document.documentElement.setAttribute('data-lens', l);
-      var names = { strategy: 'Strategy', bd: 'Business Development', investing: 'Investing' };
-      document.title = 'Ali Almasi - CV - ' + names[document.documentElement.getAttribute('data-lens')];
+      if (['strategy', 'bd', 'vc'].indexOf(l) > -1) document.documentElement.setAttribute('data-lens', l);
     })();
   </script>
   <style>
@@ -23,10 +21,10 @@
        Bot-safety: single reading column, real text only, logos/icons are images (ignored by parsers). */
     html[data-lens="strategy"] [data-show]:not([data-show~="strategy"]),
     html[data-lens="bd"] [data-show]:not([data-show~="bd"]),
-    html[data-lens="investing"] [data-show]:not([data-show~="investing"]) { display: none !important; }
+    html[data-lens="vc"] [data-show]:not([data-show~="vc"]) { display: none !important; }
     html[data-lens="strategy"] .lensable { order: var(--o-s, 0); }
     html[data-lens="bd"] .lensable { order: var(--o-b, 0); }
-    html[data-lens="investing"] .lensable { order: var(--o-i, 0); }
+    html[data-lens="vc"] .lensable { order: var(--o-i, 0); }
 
     :root {
       --ink: #0e1726; --ink-2: #333d4c; --muted: #646d7a; --line: #d9dde3; --soft: #f3f5f8;
@@ -175,17 +173,9 @@
 <div class="toolbar">
   <div class="toolbar-inner">
     <a class="back" href="../index.html" data-keep-lens>← Back to portfolio</a>
-    <div class="version">
-      <span class="label">CV version</span>
-      <div class="lens-switch" role="group" aria-label="CV version">
-        <button type="button" data-lens-btn="strategy" aria-pressed="true">Strategy</button>
-        <button type="button" data-lens-btn="bd" aria-pressed="false"><span class="long">Business Development</span><span class="short">Biz Dev</span></button>
-        <button type="button" data-lens-btn="investing" aria-pressed="false">Investing</button>
-      </div>
-    </div>
-    <a class="dl" data-show="strategy" href="Ali_Almasi_CV_Strategy.pdf" download>Download PDF</a>
-    <a class="dl" data-show="bd" href="Ali_Almasi_CV_Business_Development.pdf" download>Download PDF</a>
-    <a class="dl" data-show="investing" href="Ali_Almasi_CV_Investing.pdf" download>Download PDF</a>
+    <a class="dl" data-show="strategy" href="Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download PDF</a>
+    <a class="dl" data-show="bd" href="bd/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download PDF</a>
+    <a class="dl" data-show="vc" href="vc/Ali_Almasi_CV.pdf" download="Ali_Almasi_CV.pdf">Download PDF</a>
   </div>
 </div>
 
@@ -196,7 +186,7 @@
       <h1>Ali Almasi</h1>
       <div class="headline" data-show="strategy">Strategy · Fintech &amp; Digital Assets</div>
       <div class="headline" data-show="bd">Business Development · Fintech &amp; New Ventures</div>
-      <div class="headline" data-show="investing">Venture &amp; Investment Analysis · Digital Assets</div>
+      <div class="headline" data-show="vc">Venture Capital · Fintech &amp; Digital Assets</div>
     </div>
     <ul class="contact">
       <li>Tehran, Iran · +98 939 043 4378</li>
@@ -208,7 +198,7 @@
   <!-- ============ SUMMARY ============ -->
   <p class="summary" data-show="strategy"><b>Strategy professional with 7+ years across fintech, digital assets and technology.</b> I benchmark markets, size opportunities and build business cases that turn research into decisions, up to launch. Two years of VC due diligence at Wallex add an investor's view of business models and unit economics.</p>
   <p class="summary" data-show="bd"><b>Business development professional who takes new lines of business from market sizing to launch.</b> At iToll I built the business case, pricing, unit economics and partner model for an on-demand automotive-services line and launched its first vertical in three months, backed by the rigor of VC due diligence.</p>
-  <p class="summary" data-show="investing"><b>Venture and investment analyst with two years at Wallex</b>, running due diligence on 500+ blockchain, DeFi and Web3 protocols and supporting a proprietary multi-strategy portfolio. I add an operator's view from launching a new business line and shaping a fintech proposition.</p>
+  <p class="summary" data-show="vc"><b>VC business analyst with two years at Wallex</b>, screening deal flow, running due diligence on 500+ blockchain, DeFi and Web3 projects and turning findings into investment theses. I bring an operator's view to deals from launching a new business line and shaping a fintech proposition.</p>
 
   <!-- ============ HIGHLIGHTS ============ -->
   <div class="highlights" data-show="strategy">
@@ -221,10 +211,10 @@
     <div class="hl"><span class="n">4</span><span class="t">markets benchmarked for a new fintech proposition</span></div>
     <div class="hl"><span class="n">7+ yrs</span><span class="t">across fintech, marketing and tech delivery</span></div>
   </div>
-  <div class="highlights" data-show="investing">
-    <div class="hl"><span class="n">500+</span><span class="t">protocols through due diligence</span></div>
-    <div class="hl"><span class="n">35%</span><span class="t">annualized return on the proprietary portfolio</span></div>
-    <div class="hl"><span class="n">1.55</span><span class="t">Sharpe ratio on the same portfolio</span></div>
+  <div class="highlights" data-show="vc">
+    <div class="hl"><span class="n">500+</span><span class="t">projects through due diligence</span></div>
+    <div class="hl"><span class="n">3 layers</span><span class="t">design, tokenomics, market positioning</span></div>
+    <div class="hl"><span class="n">35%</span><span class="t">annualized return, proprietary portfolio</span></div>
   </div>
 
   <!-- ============ EXPERIENCE ============ -->
@@ -250,8 +240,9 @@
       <div class="e-sub"><span class="title">VC Business Analyst</span><span class="loc">Tehran, Iran</span></div>
       <ul>
         <li>Conducted due diligence on <b>500+ blockchain, DeFi and Web3 protocols</b>, assessing protocol design, tokenomics and market positioning, and turned findings into investment theses.</li>
-        <li>Supported allocation and portfolio construction across liquid venture, value/growth and DeFi-yield strategies. The proprietary portfolio returned <b>35% annualized at a 1.55 Sharpe ratio</b>.</li>
-        <li data-show="investing">Supported risk management through options, staking, liquidity provision and <b>delta-neutral structures</b> with perpetual futures.</li>
+        <li data-show="vc">Screened <b>deal flow across infrastructure, financial applications and emerging sectors</b>, keeping the investment team's market coverage current.</li>
+        <li data-show="strategy bd">Supported allocation and portfolio construction across liquid venture, value/growth and DeFi-yield strategies. The proprietary portfolio returned <b>35% annualized at a 1.55 Sharpe ratio</b>.</li>
+        <li data-show="vc">Supported investment decisions and portfolio construction for the company's proprietary capital, which returned <b>35% annualized</b>.</li>
         <li>Tracked narratives, macro indicators, tokenomics, sentiment and on-chain data for portfolio decisions and <b>senior leadership reporting</b>.</li>
       </ul>
     </div>
@@ -296,7 +287,7 @@
   <div class="skills">
     <div class="skill-row lensable" style="--o-s:1;--o-b:2;--o-i:2"><b>Strategy</b><span>Market sizing · Benchmarking · Opportunity mapping · Market-entry strategy · Product discovery</span></div>
     <div class="skill-row lensable" style="--o-s:2;--o-b:1;--o-i:3"><b>Business development</b><span>Business cases · Pricing &amp; unit economics · Partnership analysis · Go-to-market · Agile delivery</span></div>
-    <div class="skill-row lensable" style="--o-s:3;--o-b:3;--o-i:1"><b>Finance &amp; investing</b><span>Due diligence · Investment theses · Portfolio construction · Tokenomics · On-chain analysis</span></div>
+    <div class="skill-row lensable" style="--o-s:3;--o-b:3;--o-i:1"><b>Venture capital</b><span>Deal screening · Due diligence · Investment theses · Portfolio construction · Tokenomics</span></div>
   </div>
 
   <!-- ============ EDUCATION ============ -->
@@ -311,7 +302,7 @@
   </div>
   <div class="edu">
     <div class="logo"><img src="../assets/logos/nodet.svg" alt=""></div>
-    <div class="edu-line"><span><b>Secondary school, NODET</b> <span class="school">· National Organization for Development of Exceptional Talents</span></span><span class="when">2012 - 2018</span></div>
+    <div class="edu-line"><span><b>NODET</b> <span class="school">· National Organization for Development of Exceptional Talents</span></span><span class="when">2012 - 2018</span></div>
   </div>
 </article>
 
