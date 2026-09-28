@@ -6,7 +6,7 @@ Portfolio and CV of **Ali Almasi**: strategy, business development and venture c
 
 ## Case studies
 - **Wallex:** from 500+ projects to high-conviction investments (venture capital)
-- **iToll:** launching a new on-demand automotive-services line
+- **iToll:** building the case for a new automotive-services line
 - **Mohajer:** designing a fintech proposition for Iran's mass-affluent
 
 Plain HTML and CSS, hosted on GitHub Pages.

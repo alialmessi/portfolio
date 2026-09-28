@@ -275,7 +275,9 @@ section.tint { background: var(--bg-2); }
 /* Exhibits: process flow */
 .flow { display: grid; grid-template-columns: repeat(var(--steps, 5), 1fr); border: 1px solid var(--line-2); border-radius: var(--radius); }
 .flow-step { padding: 16px; position: relative; }
+.flow-step { border-top: 1px solid var(--line-2); margin-top: -1px; }
 .flow-step + .flow-step { border-left: 1px solid var(--line-2); }
+.flow[style*="--steps:3"] .flow-step:nth-child(3n+1) { border-left: 0; }
 .flow-step .n { font-size: .78rem; font-weight: 600; color: var(--accent); }
 .flow-step h4 { margin: 4px 0 6px; font-size: .98rem; font-weight: 600; }
 .flow-step p { margin: 0; font-size: .87rem; color: var(--muted); line-height: 1.45; }
